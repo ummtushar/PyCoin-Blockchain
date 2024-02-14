@@ -14,3 +14,4 @@ curl "localhost:5000/txion" \
 ```
 curl localhost:5000/mine
 ```
+All creds to: @aunyks
