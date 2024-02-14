@@ -1,6 +1,8 @@
 # PyCoin-Blockchain
 Building a blockchain purely on python
 
+First run the file full-PyCoin-Server-Code and then...
+
 # Creating a transaction
 Run the following in the terminal:
 
