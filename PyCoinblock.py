@@ -1,6 +1,7 @@
 import hashlib as hasher
 import datetime as date
 
+
 class Block:
   def __init__(self, index, timestamp, data, previous_hash):
     self.index = index
@@ -33,13 +34,15 @@ def next_block(last_block):
 blockchain = [create_genesis_block()]
 previous_block = blockchain[0]
 
-#Asking user for number of blocks
-number_of_blocks = int(input("How many blocks should be included in the blockchain:"))
+# #Asking user for number of blocks
+# number_of_blocks = int(input("How many blocks should be included in the blockchain:"))
+# #number_of_blocks = 20
 
-for i in range(number_of_blocks):
-    block_to_add = next_block(previous_block)
-    blockchain.append(block_to_add)
-    previous_block = block_to_add
-    # Tell everyone about it!
-    print("Block {} has been added to the blockchain!".format(block_to_add.index))
-    print("Hash: {}".format(block_to_add.hash)) 
+
+# for i in range(number_of_blocks):
+#     block_to_add = next_block(previous_block)
+#     blockchain.append(block_to_add)
+#     previous_block = block_to_add
+#     # Tell everyone about it!
+#     print("Block {} has been added to the blockchain!".format(block_to_add.index))
+#     print("Hash: {}".format(block_to_add.hash)) 
