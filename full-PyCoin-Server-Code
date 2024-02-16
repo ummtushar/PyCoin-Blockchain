@@ -31,7 +31,7 @@ def create_genesis_block():
 
 # A completely random address of the owner of this node
 miner_address = "q3nf394hjg-random-miner-address-34nf3i4nflkn3oi"
-# This node's blockchain copy
+
 blockchain = []
 blockchain.append(create_genesis_block())
 # Store the transactions that
@@ -108,7 +108,7 @@ def consensus():
   # our chain to the longest one
   blockchain = longest_chain
 
-def proof_of_work(last_proof):
+def proof_of_work(last_proof, difficulty):
   # Create a variable that we will use to find
   # our next proof of work
   incrementor = last_proof + 1
@@ -117,7 +117,7 @@ def proof_of_work(last_proof):
   # and the proof of work of the previous
   # block in the chain
   while not (incrementor % 6 == 0 and incrementor % last_proof == 0):
-    incrementor += 1
+    incrementor += difficulty
   # Once that number is found,
   # we can return it as a proof
   # of our work
@@ -132,7 +132,7 @@ def mine():
   # the current block being mined
   # Note: The program will hang here until a new
   #       proof of work is found
-  proof = proof_of_work(last_proof)
+  proof = proof_of_work(last_proof,3)
   # Once we find a valid proof of work,
   # we know we can mine a block so 
   # we reward the miner by adding a transaction
