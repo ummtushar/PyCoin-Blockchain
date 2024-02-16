@@ -16,7 +16,7 @@ class Block:
     self.hash = self.hash_block()
   
   def hash_block(self):
-    sha = hasher.sha384()
+    sha = hasher.sha384() #48 bit encryption
     sha.update(str(self.index).encode('utf-8') + str(self.timestamp).encode('utf-8') + str(self.data).encode('utf-8') + str(self.previous_hash).encode('utf-8'))
     return sha.hexdigest()
 
@@ -25,7 +25,7 @@ def create_genesis_block():
   # Manually construct a block with
   # index zero and arbitrary previous hash
   return Block(0, date.datetime.now(), {
-    "proof-of-work": 9,
+    "proof-of-work": 6,
     "transactions": None
   }, "0")
 
@@ -116,7 +116,7 @@ def proof_of_work(last_proof):
   # it's equal to a number divisible by 9
   # and the proof of work of the previous
   # block in the chain
-  while not (incrementor % 9 == 0 and incrementor % last_proof == 0):
+  while not (incrementor % 6 == 0 and incrementor % last_proof == 0):
     incrementor += 1
   # Once that number is found,
   # we can return it as a proof
